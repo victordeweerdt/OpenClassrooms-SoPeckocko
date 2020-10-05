@@ -1,7 +1,8 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-const User = require('../models/User');
+// Import du model User
+const User = require('../models/user');
 
 // Version 1.0
 // 
@@ -13,6 +14,8 @@ exports.signup = (req, res, next) => {
           email: req.body.email,
           password: hash
         });
+        console.log("Email créé : ", req.body.email);
+        console.log("Password hashé : ", hash);
         // J'enregistre mon utilisateur
         user.save()
           .then(() => res.status(201).json({ message: 'Utilisateur créé !' }))

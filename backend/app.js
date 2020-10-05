@@ -1,15 +1,16 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-mongoose.set('useCreateIndex', true);
 const path = require('path');
 
 const sauceRoutes = require('./routes/sauce');
 const userRoutes = require('./routes/user');
 
+const checkToken = require('./middleware/token');
+
 const app = express();
 
-mongoose.connect('mongodb+srv://SoPeckocko20:YIqQraUne1RWb01B@cluster0.svtkj.mongodb.net/test?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://SoPeckocko2:Open2020@cluster0.cxc7a.mongodb.net/test?retryWrites=true&w=majority',
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))

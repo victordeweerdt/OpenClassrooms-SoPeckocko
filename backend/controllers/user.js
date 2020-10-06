@@ -37,7 +37,7 @@ exports.login = (req, res, next) => {
               return res.status(401).json({ error: 'Mot de passe incorrect !' });
             }
             // Le token suivant va nous permettre de créer une clé d'authentification pour chaque utilisateur
-            res.status(200).json({
+            res.status(200).json({ 
               userId: user._id,
               token: jwt.sign(
                 { userId: user._id },
@@ -46,11 +46,10 @@ exports.login = (req, res, next) => {
                 )
             });
           })
+          // .then(res => {
+          //   res.cookie('authcookie',token,{maxAge:900000,httpOnly:true})
+          // })
           .catch(error => res.status(500).json({ error }));
       })
-      // .then(() => res.status(200).json(token))
       .catch(error => res.status(500).json({ error }));
-      // console.log(req.headers['authorization']);
-      // res.cookie('authorization', '123');
-      // res.status(200).json({ message: 'Cookie en place'});
   };

@@ -11,19 +11,20 @@ exports.createSauce = (req, res, next) => {
         !regex.test(sauceObject.description) || !regex.test(sauceObject.mainPepper) ||
         !regex.test(sauceObject.heat)) {
         return res.status(500).json({ error: 'Des caractères invalides se trouvent dans vos champs.' });
-    } 
+    }  else {
     // La sauce est créée
-    const sauce = new Sauce({
-      ...sauceObject,
-      imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`,
-      likes: 0,
-      dislikes: 0,
-      usersLiked: [],
-      usersDisliked: []
-    });
-    sauce.save()
-    .then(() => res.status(201).json({ message: 'Sauce bien enregistrée !'}))
-    .catch((error) => res.status(400).json({ error }));
+      const sauce = new Sauce({
+        ...sauceObject,
+        imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`,
+        likes: 0,
+        dislikes: 0,
+        usersLiked: [],
+        usersDisliked: []
+      });
+      sauce.save()
+      .then(() => res.status(201).json({ message: 'Sauce bien enregistrée !'}))
+      .catch((error) => res.status(400).json({ error }));
+  }
 };
 
 exports.getOneSauce = (req, res, next) => {

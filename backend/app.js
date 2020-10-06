@@ -5,7 +5,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 
 // Connection avec la DB
-mongoose.connect('mongodb+srv://SoPeckocko2:Open2020@cluster0.cxc7a.mongodb.net/test?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://Boris:dCohnP49zWyMZXYO@cluster0.ehlt2.mongodb.net/test?retryWrites=true&w=majority',
   { useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,

@@ -5,7 +5,6 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 
 // Version 1.0
-// 
 exports.signup = (req, res, next) => {
     // je hash mon mot de passe et le sale 10 fois
     bcrypt.hash(req.body.password, 10)
@@ -25,7 +24,6 @@ exports.signup = (req, res, next) => {
   };
 
 exports.login = (req, res, next) => {
-  console.log('toto');
     // Je cherche dans ma base de données si mon utilisateur existe
     User.findOne({ email: req.body.email })
       .then(user => {
@@ -45,10 +43,14 @@ exports.login = (req, res, next) => {
                 { userId: user._id },
                 'RANDOM_TOKEN_SECRET',
                 { expiresIn: '24h' } // À vérifier RGPD
-              )
+                )
             });
           })
           .catch(error => res.status(500).json({ error }));
       })
+      // .then(() => res.status(200).json(token))
       .catch(error => res.status(500).json({ error }));
+      // console.log(req.headers['authorization']);
+      // res.cookie('authorization', '123');
+      // res.status(200).json({ message: 'Cookie en place'});
   };

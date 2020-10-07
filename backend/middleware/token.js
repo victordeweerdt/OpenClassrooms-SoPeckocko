@@ -10,12 +10,3 @@
 //         res.sendStatus(403); // Requete de non permission
 //     }
 // }
-
-// module.exports = function verifyAuthToken(req, res, next) {
-//     const { authorization } = req.headers;
-//     if (authorization && authorization === 'RANDOM_TOKEN_SECRET') {
-//         next();
-//     } else {
-//         res.status(403).send({ error: 'Accès interdit' });
-//     }
-// }

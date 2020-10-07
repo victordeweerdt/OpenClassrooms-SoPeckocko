@@ -1,4 +1,9 @@
+// On déclare le plugin que nous allons utiliser
+// Ici mongoose pour MongoDB
+
 const mongoose = require('mongoose');
+
+// On crée notre modèle Sauce
 
 const sauceSchema = mongoose.Schema({
     userId: { type: String, required: true },
@@ -13,5 +18,7 @@ const sauceSchema = mongoose.Schema({
     usersLiked: { type: [String] },
     usersDisliked: { type: [String] }
 });
+
+// On exporte le module.
 
 module.exports = mongoose.model('sauce', sauceSchema);

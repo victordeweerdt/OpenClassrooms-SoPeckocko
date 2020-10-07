@@ -42,6 +42,7 @@ export class AuthService {
         (response: {userId: string, token: string}) => {
           this.userId = response.userId;
           this.authToken = response.token;
+          document.cookie = "token=" + response.token;
           this.isAuth$.next(true);
           resolve();
         },

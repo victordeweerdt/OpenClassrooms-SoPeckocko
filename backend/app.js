@@ -4,7 +4,6 @@ const express = require('express');
 const bodyParser = require('body-parser'); // Package qui va transformer en JSON les elements du HTML
 const mongoose = require('mongoose'); // Package pour communiquer avec MongoDB
 const path = require('path');
-const cookieParser = require('cookie-parser'); // Package pour la mise en cookie du token
 
 // Connection avec MongoDB
 
@@ -35,7 +34,6 @@ app.use((req, res, next) => {
 });
 
 app.use(bodyParser.json());
-app.use(cookieParser());
 
 // On crée l'URI de nos routes
 
